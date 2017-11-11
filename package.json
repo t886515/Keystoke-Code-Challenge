@@ -1,0 +1,33 @@
+{
+  "name": "Keystoke-Code-Challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/t886515/Keystoke-Code-Challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/t886515/Keystoke-Code-Challenge/issues"
+  },
+  "homepage": "https://github.com/t886515/Keystoke-Code-Challenge#readme",
+  "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "body-parser": "^1.18.2",
+    "browserify-middleware": "^8.0.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.1",
+    "nodemon": "^1.12.1",
+    "path": "^0.12.7",
+    "react": "^16.1.0",
+    "react-dom": "^16.1.0"
+  }
+}
