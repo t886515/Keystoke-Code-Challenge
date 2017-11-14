@@ -59,7 +59,6 @@ export const findUser = (username, callback) => {
 }
 
 export const updateUser = (username, name, description, profilePicture, callback) => {
-  console.log(username, name, 'whats going on')
   $.ajax({
     type: "POST",
     url: '/user/update',

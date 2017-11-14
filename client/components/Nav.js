@@ -21,7 +21,7 @@ const Nav = ({logout, type, changeType}) => (
     style={{
       backgroundColor: indigo900,
     }}
-    title={<div onClick={changeType} className='logo' activeStyle={{ color: 'white', textDecoration: 'none' }}><span style={styles.title}><Flare style={styles.title}/> {type==="Profiles"? "All Users" : "Profile Setting"} </span></div>}
+    title={<div onClick={changeType} className='logo' activestyle={{ color: 'white', textDecoration: 'none' }}><span style={styles.title}><Flare style={styles.title}/> {type==="Profiles"? "All Users" : "Profile Setting"} </span></div>}
     iconElementLeft={<IconButton></IconButton>}
     iconElementRight={  <FlatButton label="logout" onClick={ () => logout() } /> } />
 );

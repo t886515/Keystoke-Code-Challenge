@@ -25,7 +25,6 @@ class Dashboard extends React.Component {
         type: 'Profiles'
       })
     }
-    console.log(this.state.type)
   }
 
   render() {

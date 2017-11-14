@@ -1,7 +1,4 @@
-// 8-3-17
-// This file creates the MongoDB configuration. 
-// One setting I have consistently found useful was to set reconnect tries to max value.
-// mongoose promises are deprecated, setting global promise and mongoose promise to bluebird library
+
 var mongoose = require('mongoose');
 global.Promise = require('bluebird');
 mongoose.Promise = require('bluebird');

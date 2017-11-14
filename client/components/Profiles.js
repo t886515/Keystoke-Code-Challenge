@@ -17,28 +17,6 @@ const Profiles = ({ allUsers })=> {
 }
 
 
-// class Profiles extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//     }
-//   }
-
-//   render() {
-//     const profileList = this.props.allUsers.map((user, i)=>{
-//       return (
-//         <ProfileList key={i} user={user} />
-//       )
-//     });
-
-//     return (
-//       <div className="profile">
-//         {profileList}
-//       </div>
-//     );
-//   }
-// }
-
 export default Profiles;
 
 

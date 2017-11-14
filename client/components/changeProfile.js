@@ -11,7 +11,6 @@ class changeProfile extends React.Component {
       description: this.props.userInfo.description,
       imagelink: this.props.userInfo.profilePicture
     }
-    // console.log(this.props.userInfo)
     this.onSubmitForm = this.onSubmitForm.bind(this);
     this.handleOnChange = this.handleOnChange.bind(this);
   }
