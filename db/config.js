@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 global.Promise = require('bluebird');
 mongoose.Promise = require('bluebird');
 
-mongoose.connect('mongodb://localhost/data/db', {
+mongoose.connect('mongodb://localhost/userdb', {
   server: {reconnectTries: Number.MAX_VALUE}
 });
 

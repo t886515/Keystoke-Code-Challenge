@@ -1,46 +1,89 @@
 import React from 'react';
-import Dashboard from './Dashboard.jsx';
-import SplashLogin from './SplashLogin.jsx';
-import * as UserModel from '../models/user.js';
-import $ from 'jquery';
+import Dashboard from './Dashboard';
+import Login from './Login';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { getAllUsers } from '../model/user';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       signedIn: false,
-      user: {}
+      userInfo: {
+          username: 'cat',
+          name: 'Some Cat',
+          description: 'some cat balalalal',
+          profilePicture: 'https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb'
+        },
+      allUsers: [ 
+        {
+          username: 'cat',
+          name: 'Some Cat',
+          description: 'some cat balalalal',
+          profilePicture: 'https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb'
+        },
+        {
+          username: 'cateeeeeeee',
+          name: 'Some Cateeee',
+          description: 'some cat balfsfdsfsd;fdsalalal',
+          profilePicture: 'https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb'
+        },
+        {
+          username: 'cat1111',
+          name: 'Some Catrewqrewqr',
+          description: 'some cat balalalaldasfdafasfd',
+          profilePicture: 'https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb'
+        } ]
     }
-  this.handleSignOut = this.handleSignOut.bind(this);
+
+
+    this.updateUserInfo = this.updateUserInfo.bind(this);
+    this.logout = this.logout.bind(this);
+    this.updateAllUsers = this.updateAllUsers.bind(this);
   }
 
-  componentWillMount() {
-    UserModel.getUser((data) => {
-      if (data.passport) {
-        this.setState({
-          signedIn: true,
-          user: data.passport.user
-        })
-      }
+  componentDidMount() {
+    this.updateAllUsers();
+  }
+
+  updateUserInfo(userObj) {
+    this.setState({
+      signedIn: true,
+      userInfo: userObj
     })
   }
 
-  handleSignOut() {
-    UserModel.signOut((data)=>{
+  updateAllUsers() {
+    getAllUsers((users)=>{
       this.setState({
-        signedIn: false,
-        user: {}
+        allUsers: users
       })
-    });
+    })
   }
+
+  logout() {
+    this.setState({
+      signedIn: false,
+      userInfo: {}
+    })
+  }
+
 
   render() {
     return (
+      <MuiThemeProvider>
       <div className="app">
-        { this.state.signedIn && <a className="signoutLink" onClick={this.handleSignOut}>Sign Out</a> }
-        { this.state.signedIn && <Dashboard user={this.state.user} /> }
-        { !this.state.signedIn && <SplashLogin/> }
+        {!this.state.signedIn && <Login 
+          updateUserInfo={this.updateUserInfo}/>}
+
+        {this.state.signedIn && <Dashboard 
+          userInfo={this.state.userInfo} 
+          allUsers={this.state.allUsers} 
+          logout={this.logout} 
+          updateAllUsers={this.updateAllUsers} 
+          updateUserInfo={this.updateUserInfo}/>}
       </div>
+      </MuiThemeProvider>
     );
   }
 }
