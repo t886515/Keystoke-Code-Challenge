@@ -2,7 +2,7 @@ import React from 'react';
 import Dashboard from './Dashboard';
 import Login from './Login';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { getAllUsers } from '../model/user';
+import { getAllUsers, checkSession, signOut } from '../model/user';
 
 class App extends React.Component {
   constructor(props) {
@@ -41,8 +41,15 @@ class App extends React.Component {
     this.logout = this.logout.bind(this);
     this.updateAllUsers = this.updateAllUsers.bind(this);
   }
-
+  
   componentDidMount() {
+    checkSession( (data) => { 
+      if (data.passport) {
+        this.updateUserInfo(data.passport.user.user.doc);
+      } else if (data.user) {
+        this.updateUserInfo(data.user);
+      }
+    });
     this.updateAllUsers();
   }
 
@@ -65,7 +72,8 @@ class App extends React.Component {
     this.setState({
       signedIn: false,
       userInfo: {}
-    })
+    });
+    signOut((message)=>{console.log(message)});
   }
 
 
