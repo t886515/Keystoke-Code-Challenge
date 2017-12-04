@@ -3,7 +3,7 @@ import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import Timeline from 'material-ui/svg-icons/action/timeline';
-import Flare from 'material-ui/svg-icons/image/flare';
+import Flare from 'material-ui/svg-icons/action/timeline';
 import {indigo900} from 'material-ui/styles/colors'
 
 import FlatButton from 'material-ui/FlatButton';
