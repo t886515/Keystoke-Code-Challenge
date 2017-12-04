@@ -5,7 +5,7 @@ import FlatButton from 'material-ui/FlatButton';
 
 const profileList = ({user})=> {
   return (
-    <Card containerStyle={{"display": "inline"}} style={{"width": "20%", "margin": "10px 10px 10px 10px" }}>
+    <Card style={{"width": "20%", "margin": "10px 10px 10px 10px" }}>
       <CardHeader
         title={user.name}
         subtitle={`by ${user.username}`}
