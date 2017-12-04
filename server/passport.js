@@ -12,7 +12,14 @@ passport.deserializeUser( (user, done) => {
   done(null, user);
 });
 
-var callbackURL = 'http://localhost:8000/auth/google/callback';
+// var callbackURL = 'http://localhost:8000/auth/google/callback';
+
+var callbackURL;
+if(process.env.PORT) {
+  callbackURL = 'https://profiles-viewer.herokuapp.com/auth/google/callback';
+} else {
+  callbackURL = 'http://localhost:8000/auth/google/callback';
+}
 
 var strategy = new GoogleStrategy({
   clientID: googleConfig.GOOGLE_CLIENT_ID,
