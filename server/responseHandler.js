@@ -1,7 +1,9 @@
 const db = require('../db/config.js');
 const User = require('../db/user.js');
 
-
+exports.checkSession = (req, res) => {
+  res.status(200).send(req.session);
+}
 
 exports.createUser = (req, res) => {
   console.log(req.body)
@@ -28,6 +30,7 @@ exports.createUser = (req, res) => {
           if(err) res.status(400).send(err);
           User.findOne({username: req.body.username})
           .then((user)=> {
+            req.session.user = user;
             res.status(200).send(user);
           })
         });
@@ -48,7 +51,8 @@ exports.findUser = (req, res) => {
       if (user === null) {
         res.status(400).send('user not found.')
       } else {
-        res.status(200).send(user)
+        req.session.user = user;
+        res.status(200).send(user);
       }
     })
     .catch( (err) => {
@@ -67,6 +71,7 @@ exports.updateUser = (req, res) => {
       user.description = req.body.description;
       user.profilePicture = req.body.profilePicture;
       user.save();
+      req.session.user = user;
       res.status(200).send(user);
     })
   }
@@ -81,5 +86,11 @@ exports.findAllUsers = (req, res) => {
     console.log(err);
     res.status(400).send(err);
   })
+}
+
+exports.logout = (req, res) => {
+  req.session.destroy();
+  req.logout();
+  res.redirect('/');
 }
 
