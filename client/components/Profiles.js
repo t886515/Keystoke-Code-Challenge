@@ -1,6 +1,6 @@
 import React from 'react';
 import ProfileList from './profileList';
-import { CenterDiv } from '../styled-components'
+import { Cards } from '../styled-components'
 
 const Profiles = ({ allUsers })=> {
   const profileList = allUsers.map((user, i)=>{
@@ -10,9 +10,9 @@ const Profiles = ({ allUsers })=> {
   });
 
   return (
-    <CenterDiv className="profile">
+    <Cards className="profile">
       {profileList}
-    </CenterDiv>
+    </Cards>
   );
 }
 
