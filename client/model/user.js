@@ -14,6 +14,16 @@ export const getAllUsers = (callback) => {
   })
 };
 
+export const checkSession = (callback) => {
+  $.ajax({
+    type: "GET",
+    url: '/session',
+    contentType: 'application/json',
+    success: (data) => {
+      callback(data);
+    }
+  })
+}
 
 export const createUser = (username, callback) => {
   $.ajax({
@@ -81,14 +91,14 @@ export const updateUser = (username, name, description, profilePicture, callback
   })
 }
 
-// export const signOut = (callback) => {
-//   $.ajax({
-//     type: "GET",
-//     url: '/logout',
-//     contentType: 'application/json',
-//     success: (data) => {
-//       callback('signed out successfully');
-//     }
-//   })
-// }
+export const signOut = (callback) => {
+  $.ajax({
+    type: "GET",
+    url: '/logout',
+    contentType: 'application/json',
+    success: (data) => {
+      callback('signed out successfully');
+    }
+  })
+}
 
