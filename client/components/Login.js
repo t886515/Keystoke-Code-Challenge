@@ -53,6 +53,8 @@ class Login extends React.Component {
       <CenterDiv className="login">
         <H1>Profiles Viewer</H1>
         <h4>Login</h4>
+        <a href="/auth/google"><RaisedButton className="signinButton" label="Sign in with google"/></a>
+        <br /><br /> OR <br /><br />
         <form>
           <TextField id="accID" name="loginUsername" placeholder="Enter An Account ID" onChange={this.handleOnChange}/>
           <RaisedButton
