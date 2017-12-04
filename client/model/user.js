@@ -1,7 +1,5 @@
 import $ from 'jquery';
-// import Cookie from 'universal-cookie';
 
-// const cookies = new Cookie();
 
 export const getAllUsers = (callback) => {
   $.ajax({
