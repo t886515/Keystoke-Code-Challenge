@@ -22,3 +22,10 @@ export const H1 = styled.h1`
   color: #2F567F
 
 `
+export const Cards = styled.div`
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  height: 10em;
+  justify-content: center;
+`;
