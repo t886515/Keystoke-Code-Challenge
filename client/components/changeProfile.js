@@ -15,8 +15,6 @@ class changeProfile extends React.Component {
     this.handleOnChange = this.handleOnChange.bind(this);
   }
 
-  componentWillMount(){
-  }
 
   async onSubmitForm(e) {
     e.preventDefault();
@@ -42,11 +40,38 @@ class changeProfile extends React.Component {
       <div className="changeProfile">
        <h4>Change your profile</h4>
         <form>
-          <TextField name="name" placeholder="Enter Profile Name" value={this.state.name} onChange={this.handleOnChange}/>
+          Name:
           <br />
-          <TextField name="description" placeholder="Enter Profile Description" value={this.state.description} onChange={this.handleOnChange}/>
+          <TextField 
+            name="name" 
+            placeholder="Enter Profile Name" 
+            value={this.state.name} 
+            onChange={this.handleOnChange}
+            style={{ "backgroundColor" : "beige" }}
+          />
           <br />
-          <TextField name="imagelink" placeholder="Enter Image Link" value={this.state.imagelink} onChange={this.handleOnChange}/>
+          Description:
+          <br />
+          <TextField 
+            name="description" 
+            placeholder="Enter Profile Description" 
+            value={this.state.description} 
+            onChange={this.handleOnChange}
+            multiLine={true}
+            rows={6}
+            style={{ "backgroundColor" : "beige" }}
+          />
+          <br />
+          Image Link:
+          <br />
+          <TextField 
+            name="imagelink" 
+            placeholder="Enter Image Link" 
+            value={this.state.imagelink} 
+            onChange={this.handleOnChange}
+            style={{ "backgroundColor" : "beige" }}
+          />
+          <br />
           <br />
           <RaisedButton
             className='submitButton'
